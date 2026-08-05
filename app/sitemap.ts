@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/opinie",
     "/faq",
+    "/regulamin",
     "/kontakt",
     "/rezerwacja",
   ];

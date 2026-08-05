@@ -157,7 +157,11 @@ export function ContactForm() {
             className="mt-1 h-4.5 w-4.5 shrink-0 accent-[#1754a8]"
           />
           <span>
-            Wyrażam zgodę na kontakt w sprawie tej wiadomości. Dane podaję
+            Akceptuję{" "}
+            <a href="/regulamin" className="font-semibold text-action hover:underline">
+              regulamin strefy
+            </a>{" "}
+            i wyrażam zgodę na kontakt w sprawie tej wiadomości. Dane podaję
             dobrowolnie i tylko w tym celu.
           </span>
         </label>

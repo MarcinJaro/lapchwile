@@ -92,18 +92,18 @@ lista gości, wybór motywu i dodatków. Wymaga decyzji o backendzie
 
 ## Dane, których strona świadomie NIE zmyśla (do uzupełnienia)
 
-Pozostałe jawne TODO w `content/site-config.ts`, `content/faq.ts`,
-`content/pricing.ts`, `content/events.ts`:
+Pozostałe jawne TODO:
 
-- [ ] pakiety urodzinowe i ceny (+ ewentualny PDF cennika)
-- [ ] odpowiedź FAQ: czy urodziny odbywają się zimą (właściciel odpowiedział
-      żartem, potrzebna realna zasada)
-- [ ] realne wydarzenia i terminy
+- [ ] odpowiedź FAQ: czy urodziny odbywają się zimą (regulamin mówi o
+      "sezonie letnim", ale potrzebne jest jednoznaczne potwierdzenie)
+- [ ] ceny biletów wstępu poza pakietami (regulamin: ogłaszane przy wejściu
+      i na profilach; strona pokazuje uczciwą notkę)
 - [ ] place id w formacie ChIJ (do przyszłej integracji API opinii; link do
       wizytówki już działa)
-- [ ] regulamin i treść zgód formularza (obecna zgoda jest minimalna)
 - [ ] PDF oferty dla szkół
 - [ ] backend formularza rezerwacji (`lib/reservation-adapter.ts`)
+- [ ] kalendarz wydarzeń na kolejne miesiące (sierpień 2026 jest wpisany
+      z oficjalnej grafiki; `content/events.ts`)
 
 Uzupełnione 2026-08-05 od właściciela strony: godziny otwarcia (pon
 zamknięte, wt-czw 14-19, pt-nd 12-20), pinezka mapy
@@ -111,7 +111,13 @@ zamknięte, wt-czw 14-19, pt-nd 12-20), pinezka mapy
 (wa.me/48790790137), Messenger (m.me/lapchwilenieporet), Facebook i
 Instagram (@lapchwilenieporet), link do opinii Google (CID
 14419731960113227145), odpowiedzi FAQ 1-5 (tort własny: tak; catering:
-boxy #CHILL; deszcz: namiot; minimum gości: brak; rodzice: strefa relaksu).
+boxy #CHILL; deszcz: namiot; minimum gości: brak; rodzice: strefa relaksu),
+pakiety urodzinowe z oficjalnego PDF (Mini 799/899 zł, Standard 1099/1299 zł,
+Premium 1699/1899 zł + dodatki, zniżki i zasady rezerwacji;
+`content/pricing.ts`, plik: /media/pdf/lap-chwile-urodziny.pdf), 15 motywów
+tematycznych (`content/themes.ts`), regulamin strefy (`content/regulamin.ts`,
+strona /regulamin, obowiązuje od 31.05.2026) oraz kalendarz dni tematycznych
+na sierpień 2026 (`content/events.ts`).
 
 Dane zweryfikowane w źródłach (lapchwile.com, nieporet.pl, cr.nieporet.pl):
 ŁAP CHWILE Anna Godlewska, ul. Polnych Kwiatów 11, 05-126 Nieporęt,

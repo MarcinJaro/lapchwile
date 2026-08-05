@@ -80,10 +80,10 @@ export const siteConfig = {
       "https://maps.google.com/?cid=14419731960113227145" as string | null,
   },
 
-  /** TODO: pliki do pobrania; komponenty pokażą się dopiero, gdy plik istnieje. */
+  /** Pliki do pobrania; komponenty pokazują się dopiero, gdy plik istnieje. */
   downloads: {
-    ofertaSzkolyPdf: null as string | null, // np. /media/pdf/oferta-szkoly.pdf
-    cennikPdf: null as string | null,
+    ofertaSzkolyPdf: null as string | null, // TODO: np. /media/pdf/oferta-szkoly.pdf
+    cennikPdf: "/media/pdf/lap-chwile-urodziny.pdf" as string | null,
   },
 
   parking: {

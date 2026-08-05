@@ -192,8 +192,9 @@ export default function UrodzinyPage() {
             Motywy przewodnie
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-muted">
-            Dekoracje, kolory i zabawy dopasowujemy do wybranego motywu. Jeśli
-            macie inny pomysł, powiedzcie nam o nim przy rezerwacji.
+            Dekoracje, kolory i zabawy dopasowujemy do wybranego motywu
+            (w pakietach Standard i Premium). Jeśli macie inny pomysł,
+            powiedzcie nam o nim przy rezerwacji.
           </p>
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
             {birthdayThemes.map((theme) => (

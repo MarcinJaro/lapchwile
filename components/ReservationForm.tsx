@@ -3,17 +3,16 @@
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { submitReservation } from "@/app/actions/reservation";
 import { initialReservationState } from "@/lib/reservation-state";
 import { birthdayThemes } from "@/content/themes";
+import { packages, extras as paidExtras } from "@/content/pricing";
 import { siteConfig } from "@/content/site-config";
 
-const extras = [
-  "Malowanie twarzy",
-  "Tatuaże zmywalne",
-  "Wata cukrowa",
-  "Atrakcje sezonowe",
-];
+const extras = paidExtras
+  .filter((extra) => extra.name !== "Dodatkowe dziecko")
+  .map((extra) => `${extra.name} (${extra.price})`);
 
 const inputClass = (hasError: boolean) =>
   `w-full rounded-input border bg-white px-4 py-3 text-ink placeholder:text-muted/60 ${
@@ -176,6 +175,12 @@ export function ReservationForm() {
       <Field label="Pakiet" name="packageChoice" optional>
         <select id="packageChoice" name="packageChoice" defaultValue="" className={inputClass(false)}>
           <option value="">Do ustalenia wspólnie</option>
+          {packages.map((pkg) => (
+            <option
+              key={pkg.id}
+              value={`${pkg.tier} - ${pkg.name}`}
+            >{`${pkg.tier} - ${pkg.name} (${pkg.priceWeekday}, ${pkg.maxChildren})`}</option>
+          ))}
         </select>
       </Field>
 
@@ -265,7 +270,11 @@ export function ReservationForm() {
             className="mt-1 h-4.5 w-4.5 shrink-0 accent-[#1754a8]"
           />
           <span>
-            Wyrażam zgodę na kontakt telefoniczny lub mailowy w sprawie tej
+            Akceptuję{" "}
+            <Link href="/regulamin" className="font-semibold text-action hover:underline">
+              regulamin strefy
+            </Link>{" "}
+            i wyrażam zgodę na kontakt telefoniczny lub mailowy w sprawie tej
             rezerwacji. Dane podaję dobrowolnie i tylko w tym celu.
           </span>
         </label>

@@ -39,6 +39,7 @@ const columns: { heading: string; links: { href: string; label: string }[] }[] =
       { href: "/opinie", label: "Opinie" },
       { href: "/faq", label: "Częste pytania" },
       { href: "/blog", label: "Blog" },
+      { href: "/regulamin", label: "Regulamin" },
       { href: "/kontakt", label: "Kontakt" },
     ],
   },

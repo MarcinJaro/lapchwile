@@ -34,9 +34,9 @@ export function UrodzinyTeaser() {
             rodzice mają czas na kawę.
           </p>
           <ul className="mt-6 space-y-2.5 text-[15px] font-semibold text-ink">
-            <li>10 motywów tematycznych do wyboru</li>
-            <li>Animatorzy przez całe przyjęcie</li>
-            <li>Namiot urodzinowy i strefy zabawy w cenie</li>
+            <li>Pakiety od 799 zł, do 20 dzieci</li>
+            <li>15 motywów tematycznych do wyboru</li>
+            <li>Animatorzy i strefy zabawy w cenie</li>
           </ul>
           <Link
             href="/urodziny"
