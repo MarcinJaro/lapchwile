@@ -1,0 +1,215 @@
+{
+  "urodziny/tort-przy-sciance": {
+    "src": "/media/urodziny/tort-przy-sciance.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/tort-przy-sciance-2": {
+    "src": "/media/urodziny/tort-przy-sciance-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/dzieci-przy-sciance": {
+    "src": "/media/urodziny/dzieci-przy-sciance.webp",
+    "width": 1125,
+    "height": 2000
+  },
+  "urodziny/dzieci-przy-sciance-2": {
+    "src": "/media/urodziny/dzieci-przy-sciance-2.webp",
+    "width": 1125,
+    "height": 2000
+  },
+  "urodziny/namiot-strefa-urodzin": {
+    "src": "/media/urodziny/namiot-strefa-urodzin.webp",
+    "width": 2000,
+    "height": 1500
+  },
+  "urodziny/stol-urodzinowy-wyscigi": {
+    "src": "/media/urodziny/stol-urodzinowy-wyscigi.webp",
+    "width": 2000,
+    "height": 1500
+  },
+  "urodziny/stol-pokemon": {
+    "src": "/media/urodziny/stol-pokemon.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/stol-pokemon-2": {
+    "src": "/media/urodziny/stol-pokemon-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/poczestunek": {
+    "src": "/media/urodziny/poczestunek.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/poczestunek-arbuz": {
+    "src": "/media/urodziny/poczestunek-arbuz.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/girlanda-balonowa": {
+    "src": "/media/urodziny/girlanda-balonowa.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/animator-z-dziecmi": {
+    "src": "/media/urodziny/animator-z-dziecmi.webp",
+    "width": 2000,
+    "height": 1500
+  },
+  "urodziny/przyjecie-w-namiocie": {
+    "src": "/media/urodziny/przyjecie-w-namiocie.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "urodziny/scianka-lap-chwile": {
+    "src": "/media/urodziny/scianka-lap-chwile.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/stolik-kolorowanki": {
+    "src": "/media/warsztaty/stolik-kolorowanki.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/stolik-kolorowanki-2": {
+    "src": "/media/warsztaty/stolik-kolorowanki-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/malowanie-twarzy": {
+    "src": "/media/warsztaty/malowanie-twarzy.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/malowanie-twarzy-2": {
+    "src": "/media/warsztaty/malowanie-twarzy-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/paleta-farb": {
+    "src": "/media/warsztaty/paleta-farb.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/stol-warsztatowy": {
+    "src": "/media/warsztaty/stol-warsztatowy.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "warsztaty/dinozaur-portret": {
+    "src": "/media/warsztaty/dinozaur-portret.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/kula-xxl": {
+    "src": "/media/zabawa/kula-xxl.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/kula-xxl-2": {
+    "src": "/media/zabawa/kula-xxl-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/kula-na-trawie": {
+    "src": "/media/zabawa/kula-na-trawie.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/banki-mydlane": {
+    "src": "/media/zabawa/banki-mydlane.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/banki-mydlane-2": {
+    "src": "/media/zabawa/banki-mydlane-2.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/klocki-xxl": {
+    "src": "/media/zabawa/klocki-xxl.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/wata-cukrowa": {
+    "src": "/media/zabawa/wata-cukrowa.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/bieg-po-trawie": {
+    "src": "/media/zabawa/bieg-po-trawie.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/gry-terenowe": {
+    "src": "/media/zabawa/gry-terenowe.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/animacje-w-parku": {
+    "src": "/media/zabawa/animacje-w-parku.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/szachy-ogrodowe": {
+    "src": "/media/zabawa/szachy-ogrodowe.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "zabawa/kula-dzieci": {
+    "src": "/media/zabawa/kula-dzieci.webp",
+    "width": 1500,
+    "height": 2000
+  },
+  "video/hero-kula": {
+    "src": "/media/video/hero-kula.mp4",
+    "poster": "/media/video/hero-kula-poster.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "video/urodziny-reel": {
+    "src": "/media/video/urodziny-reel.mp4",
+    "poster": "/media/video/urodziny-reel-poster.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "video/otwarcie-reel": {
+    "src": "/media/video/otwarcie-reel.mp4",
+    "poster": "/media/video/otwarcie-reel-poster.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "strefy/tor-ninja": {
+    "src": "/media/strefy/tor-ninja.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "strefy/ogrod-sensoryczny": {
+    "src": "/media/strefy/ogrod-sensoryczny.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "strefy/tablica-muzyczna": {
+    "src": "/media/strefy/tablica-muzyczna.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "strefy/piaskownica": {
+    "src": "/media/strefy/piaskownica.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "strefy/kule-wodne": {
+    "src": "/media/strefy/kule-wodne.webp",
+    "width": 1080,
+    "height": 1920
+  },
+  "logo/logotyp-lap-chwile": {
+    "src": "/media/logo/logotyp-lap-chwile.png",
+    "width": 479,
+    "height": 364
+  }
+}

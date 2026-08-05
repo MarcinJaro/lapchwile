@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { Hero } from "@/components/Hero";
+import { TrustStrip } from "@/components/TrustStrip";
+import { BalloonStory } from "@/components/BalloonStory";
+import { ZonesGrid } from "@/components/ZonesGrid";
+import { UrodzinyTeaser } from "@/components/UrodzinyTeaser";
+import { EventsPreview } from "@/components/EventsPreview";
+import { GalleryStrip } from "@/components/GalleryStrip";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { FaqAccordion } from "@/components/FaqAccordion";
+import { ReservationCta } from "@/components/ReservationCta";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Łap Chwile. Urodziny i zabawa nad Zalewem Zegrzyńskim",
+  description:
+    "Strefa zabaw przy Porcie Pilawa w Nieporęcie: Tor Ninja, ogród sensoryczny, warsztaty kreatywne, animacje i urodziny dla dzieci.",
+  path: "/",
+});
+
+export default function HomePage() {
+  return (
+    <>
+      <Hero />
+      <TrustStrip />
+      <BalloonStory />
+      <ZonesGrid />
+      <UrodzinyTeaser />
+      <EventsPreview />
+      <GalleryStrip />
+      <ReviewsSection />
+      <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6" aria-labelledby="faq-naglowek">
+        <h2 id="faq-naglowek" className="text-center font-display text-3xl font-bold text-ink sm:text-4xl">
+          Częste pytania
+        </h2>
+        <div className="mt-8">
+          <FaqAccordion />
+        </div>
+        <p className="mt-6 text-center text-muted">
+          Więcej odpowiedzi znajdziesz na stronie{" "}
+          <Link href="/faq" className="font-semibold text-action hover:underline">
+            częstych pytań
+          </Link>
+          .
+        </p>
+      </section>
+      <ReservationCta />
+    </>
+  );
+}
