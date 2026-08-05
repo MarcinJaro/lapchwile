@@ -89,7 +89,10 @@ export default function KontaktPage() {
             <p className="mt-3 text-[15px] leading-relaxed text-muted">
               {siteConfig.venue.name}
               <br />
-              {siteConfig.venue.description}, {siteConfig.venue.city}.
+              {siteConfig.venue.street}, {siteConfig.venue.postalCode}{" "}
+              {siteConfig.venue.city}
+              <br />
+              {siteConfig.venue.description}.
             </p>
             {siteConfig.venue.mapPin ? (
               <a

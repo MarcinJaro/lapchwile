@@ -18,14 +18,25 @@ export function localBusinessSchema() {
     image: `${siteConfig.domain}/media/urodziny/animator-z-dziecmi.webp`,
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.legal.street,
-      postalCode: siteConfig.legal.postalCode,
-      addressLocality: siteConfig.legal.city,
+      streetAddress: siteConfig.venue.street,
+      postalCode: siteConfig.venue.postalCode,
+      addressLocality: siteConfig.venue.city,
       addressCountry: "PL",
     },
     description:
       "Strefa zabaw i urodzin dla dzieci przy Porcie Pilawa nad Zalewem Zegrzyńskim: Tor Ninja, ogród sensoryczny, warsztaty kreatywne i animacje.",
   };
+  if (siteConfig.openingHoursSpec.length > 0) {
+    schema.openingHoursSpecification = siteConfig.openingHoursSpec.map((spec) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: spec.days,
+      opens: spec.opens,
+      closes: spec.closes,
+    }));
+  }
+  if (siteConfig.venue.mapPin) {
+    schema.hasMap = siteConfig.venue.mapPin;
+  }
   if (siteConfig.venue.coordinates) {
     schema.geo = {
       "@type": "GeoCoordinates",

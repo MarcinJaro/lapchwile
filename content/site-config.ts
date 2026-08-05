@@ -22,38 +22,62 @@ export const siteConfig = {
   /**
    * Verified: strefa Łap Chwile działa przy Porcie Pilawa, w Kompleksie
    * Rekreacyjno-Wypoczynkowym Nieporęt-Pilawa, obok skateparku
-   * (źródło: nieporet.pl, otwarcie 31.05.2026).
-   * TODO: potwierdzić dokładny adres pinezki i współrzędne mapy.
+   * (źródła: nieporet.pl, cr.nieporet.pl; otwarcie 31.05.2026).
+   * Pinezka i współrzędne z linku przekazanego przez właściciela strony.
    */
   venue: {
     name: "Strefa Łap Chwile, Port Pilawa",
     description:
       "Kompleks Rekreacyjno-Wypoczynkowy Nieporęt-Pilawa, obok skateparku",
+    street: "ul. Wojska Polskiego 3",
+    postalCode: "05-126",
     city: "Nieporęt",
-    mapPin: null as string | null, // TODO: link do pinezki Google Maps
-    coordinates: null as { lat: number; lng: number } | null, // TODO
+    mapPin: "https://maps.app.goo.gl/sXt7j1gYy9uC5Wh26" as string | null,
+    coordinates: { lat: 52.4350702, lng: 21.0365012 } as {
+      lat: number;
+      lng: number;
+    } | null,
   },
 
   contact: {
     email: "kontakt@lapchwile.com",
     phone: "+48 790 790 137",
     phoneDisplay: "790 790 137",
-    messenger: null as string | null, // TODO: link do Messengera
-    whatsapp: null as string | null, // TODO: numer/link WhatsApp
+    messenger: "https://m.me/lapchwilenieporet" as string | null,
+    whatsapp: "https://wa.me/48790790137" as string | null,
   },
 
   social: {
-    facebook: null as string | null, // TODO: adres profilu Facebook
-    instagram: null as string | null, // TODO: adres profilu Instagram
+    facebook: "https://www.facebook.com/lapchwilenieporet" as string | null,
+    instagram: "https://www.instagram.com/lapchwilenieporet" as string | null,
   },
 
-  /** TODO: uzupełnić realne godziny otwarcia strefy. */
-  openingHours: null as { label: string; hours: string }[] | null,
+  /** Godziny przekazane przez właściciela strony (04.08.2026). */
+  openingHours: [
+    { label: "poniedziałek", hours: "zamknięte" },
+    { label: "wtorek", hours: "14:00-19:00" },
+    { label: "środa", hours: "14:00-19:00" },
+    { label: "czwartek", hours: "14:00-19:00" },
+    { label: "piątek", hours: "12:00-20:00" },
+    { label: "sobota", hours: "12:00-20:00" },
+    { label: "niedziela", hours: "12:00-20:00" },
+  ] as { label: string; hours: string }[] | null,
 
-  /** TODO: dane do integracji opinii Google (place id lub link). */
+  /** Machine-readable wersja godzin dla schema.org. */
+  openingHoursSpec: [
+    { days: ["Tuesday", "Wednesday", "Thursday"], opens: "14:00", closes: "19:00" },
+    { days: ["Friday", "Saturday", "Sunday"], opens: "12:00", closes: "20:00" },
+  ],
+
+  /**
+   * Link do wizytówki Google z opiniami (CID z linku przekazanego przez
+   * właściciela strony). placeId w formacie ChIJ do uzupełnienia przy
+   * integracji API opinii.
+   */
   googleReviews: {
     placeId: null as string | null,
-    profileUrl: null as string | null,
+    profileUrl:
+      "https://maps.google.com/?cid=14419731960113227145" as string | null,
   },
 
   /** TODO: pliki do pobrania; komponenty pokażą się dopiero, gdy plik istnieje. */
@@ -63,8 +87,16 @@ export const siteConfig = {
   },
 
   parking: {
-    /** TODO: potwierdzić zasady parkowania przy Porcie Pilawa. */
-    info: null as string | null,
+    /**
+     * Źródła: cr.nieporet.pl (duży parking przy kompleksie, adres) oraz
+     * gazetapowiatowa.pl (parking płatny wg cennika gminnego, bezpłatnie
+     * dla posiadaczy Karty Mieszkańca Gminy Nieporęt). Stawki ustala
+     * uchwała rady gminy i zmieniają się co sezon, dlatego nie podajemy ich
+     * na sztywno.
+     */
+    info: "Przy kompleksie Nieporęt-Pilawa jest duży parking, wjazd od ul. Wojska Polskiego 3. Parking jest płatny zgodnie z cennikiem gminnym, a posiadacze Karty Mieszkańca Gminy Nieporęt parkują bezpłatnie." as
+      | string
+      | null,
   },
 } as const;
 

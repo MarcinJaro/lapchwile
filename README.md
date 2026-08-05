@@ -92,23 +92,30 @@ lista gości, wybór motywu i dodatków. Wymaga decyzji o backendzie
 
 ## Dane, których strona świadomie NIE zmyśla (do uzupełnienia)
 
-Wszystkie poniższe pola mają jawne TODO w `content/site-config.ts`,
-`content/faq.ts`, `content/pricing.ts`, `content/events.ts`:
+Pozostałe jawne TODO w `content/site-config.ts`, `content/faq.ts`,
+`content/pricing.ts`, `content/events.ts`:
 
-- [ ] dokładny adres strefy i pinezka mapy (współrzędne)
-- [ ] godziny otwarcia
-- [ ] Messenger i WhatsApp
-- [ ] linki do profili Facebook / Instagram
 - [ ] pakiety urodzinowe i ceny (+ ewentualny PDF cennika)
-- [ ] treści odpowiedzi FAQ (6 pytań czeka)
+- [ ] odpowiedź FAQ: czy urodziny odbywają się zimą (właściciel odpowiedział
+      żartem, potrzebna realna zasada)
 - [ ] realne wydarzenia i terminy
-- [ ] place id / link wizytówki Google do opinii
+- [ ] place id w formacie ChIJ (do przyszłej integracji API opinii; link do
+      wizytówki już działa)
 - [ ] regulamin i treść zgód formularza (obecna zgoda jest minimalna)
 - [ ] PDF oferty dla szkół
-- [ ] informacja o parkingu
+- [ ] backend formularza rezerwacji (`lib/reservation-adapter.ts`)
 
-Dane zweryfikowane (źródła: lapchwile.com, nieporet.pl, 2026-08-05):
+Uzupełnione 2026-08-05 od właściciela strony: godziny otwarcia (pon
+zamknięte, wt-czw 14-19, pt-nd 12-20), pinezka mapy
+(maps.app.goo.gl/sXt7j1gYy9uC5Wh26, 52.4350702/21.0365012), WhatsApp
+(wa.me/48790790137), Messenger (m.me/lapchwilenieporet), Facebook i
+Instagram (@lapchwilenieporet), link do opinii Google (CID
+14419731960113227145), odpowiedzi FAQ 1-5 (tort własny: tak; catering:
+boxy #CHILL; deszcz: namiot; minimum gości: brak; rodzice: strefa relaksu).
+
+Dane zweryfikowane w źródłach (lapchwile.com, nieporet.pl, cr.nieporet.pl):
 ŁAP CHWILE Anna Godlewska, ul. Polnych Kwiatów 11, 05-126 Nieporęt,
 NIP 1251338814, tel. +48 790 790 137, kontakt@lapchwile.com; strefa działa
-przy Porcie Pilawa (Kompleks Nieporęt-Pilawa, obok skateparku), otwarta
-31.05.2026: Tor Ninja, ogród sensoryczny, warsztaty.
+przy Porcie Pilawa, ul. Wojska Polskiego 3 (Kompleks Nieporęt-Pilawa, obok
+skateparku), otwarta 31.05.2026; parking przy kompleksie płatny wg cennika
+gminnego, bezpłatny z Kartą Mieszkańca Gminy Nieporęt.

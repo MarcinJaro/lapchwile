@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Envelope, MapPin, Phone } from "@phosphor-icons/react/dist/ssr";
+import {
+  Envelope,
+  FacebookLogo,
+  InstagramLogo,
+  MapPin,
+  Phone,
+} from "@phosphor-icons/react/dist/ssr";
 import { siteConfig } from "@/content/site-config";
 import { media } from "@/content/media";
 
@@ -78,10 +84,36 @@ export function Footer() {
               <span>
                 {siteConfig.venue.name}
                 <br />
-                {siteConfig.venue.description}
+                {siteConfig.venue.street}, {siteConfig.venue.city}
               </span>
             </li>
           </ul>
+          {(siteConfig.social.facebook || siteConfig.social.instagram) && (
+            <div className="mt-5 flex items-center gap-2">
+              {siteConfig.social.facebook && (
+                <a
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-action/8 text-action transition-colors hover:bg-action hover:text-white"
+                >
+                  <span className="sr-only">Łap Chwile na Facebooku</span>
+                  <FacebookLogo size={22} weight="fill" aria-hidden />
+                </a>
+              )}
+              {siteConfig.social.instagram && (
+                <a
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-action/8 text-action transition-colors hover:bg-action hover:text-white"
+                >
+                  <span className="sr-only">Łap Chwile na Instagramie</span>
+                  <InstagramLogo size={22} weight="fill" aria-hidden />
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {columns.map((col) => (
