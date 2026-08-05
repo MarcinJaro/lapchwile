@@ -15,6 +15,9 @@ import { ReservationCta } from "@/components/ReservationCta";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { pageMetadata } from "@/lib/seo";
 
+/** Daily refresh so the Google reviews section stays current. */
+export const revalidate = 86400;
+
 export const metadata = pageMetadata({
   title: "Urodziny dla dzieci nad Zalewem Zegrzyńskim",
   description:

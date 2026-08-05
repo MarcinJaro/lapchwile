@@ -3,6 +3,9 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 import { ReservationCta } from "@/components/ReservationCta";
 import { pageMetadata } from "@/lib/seo";
 
+/** Daily refresh so the Google reviews section stays current. */
+export const revalidate = 86400;
+
 export const metadata = pageMetadata({
   title: "Opinie rodziców",
   description:

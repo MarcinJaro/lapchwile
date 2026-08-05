@@ -75,6 +75,33 @@ Tworzy `public/frames/balloon/frame_0001..0120.webp` (1920x1080, tło
 - `prefers-reduced-motion` → statyczny kadr końcowy bez scrubbingu
 - brak klatek → statyczny poster (fallback)
 
+## Opinie Google (Places API)
+
+Sekcja opinii pobiera dane server-side z Google Places API (New) i odświeża
+je raz na dobę. Bez klucza pokazuje stan "integration-ready"; z kluczem
+wyświetla prawdziwą średnią i liczbę WSZYSTKICH opinii z wizytówki oraz
+wybrane cytaty 4-5 gwiazdek (podpisane jako wybór, z linkiem do pełnego
+profilu). To celowy, zgodny z dyrektywą Omnibus kompromis: eksponujemy
+najlepsze, nie ukrywając całości.
+
+Konfiguracja (NIE wymaga dostępu administratora wizytówki):
+
+1. [console.cloud.google.com](https://console.cloud.google.com) → nowy
+   projekt → "Places API (New)" → włącz. Wymaga podpiętego billingu;
+   nasze ~30-60 zapytań/mies. mieści się w darmowym limicie.
+2. Utwórz klucz API i ogranicz go do "Places API (New)" (klucz jest używany
+   tylko server-side, nie wycieka do przeglądarki).
+3. Dopisz do `.env.local` w katalogu projektu (i do zmiennych środowiskowych
+   na hostingu):
+
+   ```
+   GOOGLE_PLACES_API_KEY=twoj_klucz
+   ```
+
+4. Po pierwszym uruchomieniu log serwera wypisze znalezione `placeId`;
+   wpisz je do `content/site-config.ts` (`googleReviews.placeId`), aby
+   pominąć wyszukiwanie miejsca przy kolejnych odświeżeniach.
+
 ## Rezerwacja
 
 Formularz bez płatności online: walidacja inline (server action), stany

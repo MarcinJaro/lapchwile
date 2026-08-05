@@ -11,6 +11,9 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { ReservationCta } from "@/components/ReservationCta";
 import { pageMetadata } from "@/lib/seo";
 
+/** Daily refresh so the Google reviews section stays current. */
+export const revalidate = 86400;
+
 export const metadata = pageMetadata({
   title: "Łap Chwile. Urodziny i zabawa nad Zalewem Zegrzyńskim",
   description:
