@@ -9,6 +9,7 @@ import { GalleryStrip } from "@/components/GalleryStrip";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { ReservationCta } from "@/components/ReservationCta";
+import { WaveDivider } from "@/components/WaveDivider";
 import { pageMetadata } from "@/lib/seo";
 
 /** Daily refresh so the Google reviews section stays current. */
@@ -28,9 +29,13 @@ export default function HomePage() {
       <TrustStrip />
       <BalloonStory />
       <ZonesGrid />
+      <WaveDivider className="text-cream" />
       <UrodzinyTeaser />
+      <WaveDivider flip className="text-cream" />
       <EventsPreview />
+      <WaveDivider className="text-cream" />
       <GalleryStrip />
+      <WaveDivider flip className="text-cream" />
       <ReviewsSection />
       <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6" aria-labelledby="faq-naglowek">
         <h2 id="faq-naglowek" className="text-center font-display text-3xl font-bold text-ink sm:text-4xl">

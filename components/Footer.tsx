@@ -47,7 +47,13 @@ const columns: { heading: string; links: { href: string; label: string }[] }[] =
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-ink/8 bg-cream">
+    <footer className="mt-24 bg-cream">
+      <div aria-hidden className="flex h-1.5">
+        <span className="flex-1 bg-action" />
+        <span className="flex-1 bg-balloon-red" />
+        <span className="flex-1 bg-balloon-yellow" />
+        <span className="flex-1 bg-balloon-green" />
+      </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <Image

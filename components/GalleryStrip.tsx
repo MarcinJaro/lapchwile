@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { media } from "@/content/media";
+import { Reveal } from "./Reveal";
 
 /** Mixed-aspect editorial strip of real photos, not equal cards. */
 const strip = [
@@ -17,25 +18,35 @@ export function GalleryStrip() {
   return (
     <section className="bg-cream py-20" aria-labelledby="galeria-naglowek">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 id="galeria-naglowek" className="font-display text-3xl font-bold text-ink sm:text-4xl">
-            Chwile, które już złapaliśmy
-          </h2>
-          <Link href="/galeria" className="inline-flex items-center gap-1.5 font-bold text-action hover:underline">
-            Cała galeria <ArrowRight size={18} weight="bold" aria-hidden />
-          </Link>
-        </div>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {strip.map(({ image, className }) => (
-            <div key={image.src} className={`relative overflow-hidden rounded-card ${className}`}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                className="object-cover"
-              />
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-widest text-yellow-600">
+                Galeria
+              </p>
+              <h2 id="galeria-naglowek" className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+                Chwile, które już złapaliśmy
+              </h2>
             </div>
+            <Link href="/galeria" className="group inline-flex items-center gap-1.5 font-bold text-action">
+              <span className="underline-offset-4 group-hover:underline">Cała galeria</span>
+              <ArrowRight size={18} weight="bold" aria-hidden className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </Reveal>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {strip.map(({ image, className }, i) => (
+            <Reveal key={image.src} delay={i * 0.05} className={className}>
+              <div className="group relative h-full w-full overflow-hidden rounded-card">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                />
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

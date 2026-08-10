@@ -77,7 +77,7 @@ export function Nav() {
         <div className="flex items-center gap-2">
           <Link
             href="/rezerwacja"
-            className="hidden whitespace-nowrap rounded-full bg-action px-5 py-2.5 text-[15px] font-bold text-white transition-colors hover:bg-action-dark sm:inline-block"
+            className="hidden whitespace-nowrap rounded-full bg-action px-5 py-2.5 text-[15px] font-bold text-white shadow-md shadow-action/20 transition-all hover:-translate-y-0.5 hover:bg-action-dark hover:shadow-lg hover:shadow-action/30 active:translate-y-0 sm:inline-block"
           >
             Zarezerwuj
           </Link>
