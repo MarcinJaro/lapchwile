@@ -6,17 +6,17 @@ import { Sparkle } from "./Sparkle";
 
 export function UrodzinyTeaser() {
   return (
-    <section className="bg-cream py-20" aria-labelledby="urodziny-teaser">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 md:grid-cols-2">
+    <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6" aria-labelledby="urodziny-teaser">
+      <div className="grid items-center gap-12 rounded-[32px] bg-pastel-yellow px-6 py-14 sm:px-10 md:grid-cols-2 lg:px-14">
         <Reveal>
           <div className="relative grid grid-cols-2 gap-5 px-2">
             <Sparkle
               size={22}
-              className="absolute -top-6 right-8 z-10 text-balloon-yellow motion-safe:animate-float"
+              className="absolute -top-6 right-8 z-10 text-balloon-red motion-safe:animate-float"
             />
             <Sparkle
               size={14}
-              className="absolute -bottom-4 left-6 z-10 text-balloon-green motion-safe:animate-float-slow"
+              className="absolute -bottom-4 left-6 z-10 text-white motion-safe:animate-float-slow"
             />
             <div className="-rotate-2 rounded-card border-8 border-white bg-white shadow-xl shadow-ink/10 transition-transform duration-300 hover:rotate-0">
               <Image
@@ -41,11 +41,11 @@ export function UrodzinyTeaser() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-sm font-bold uppercase tracking-widest text-action">
+          <p className="text-sm font-bold uppercase tracking-widest text-ink/60">
             Najważniejszy dzień w roku
           </p>
           <h2 id="urodziny-teaser" className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-            Urodziny po Waszemu
+            Urodziny <span className="marker bg-white/80">po Waszemu</span>
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted">
             Wybieracie motyw, my dekorujemy namiot, prowadzimy animacje i pilnujemy

@@ -47,7 +47,7 @@ const columns: { heading: string; links: { href: string; label: string }[] }[] =
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-cream">
+    <footer className="mt-24 bg-white">
       <div aria-hidden className="flex h-1.5">
         <span className="flex-1 bg-action" />
         <span className="flex-1 bg-balloon-red" />

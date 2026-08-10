@@ -72,7 +72,7 @@ export function ReservationForm() {
       "Rezerwacja urodzin w Łap Chwile"
     )}&body=${encodeURIComponent(state.summary ?? "")}`;
     return (
-      <div role="status" className="rounded-card bg-cream p-8 text-center">
+      <div role="status" className="rounded-card bg-white p-8 text-center">
         <CheckCircle size={44} weight="duotone" className="mx-auto text-balloon-green" aria-hidden />
         <h2 className="mt-4 font-display text-2xl font-bold text-ink">
           Zgłoszenie gotowe

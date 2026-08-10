@@ -36,7 +36,7 @@ export function ContactForm() {
       "Wiadomość ze strony lapchwile.com"
     )}&body=${encodeURIComponent(state.summary ?? "")}`;
     return (
-      <div role="status" className="rounded-card bg-cream p-8 text-center">
+      <div role="status" className="rounded-card bg-white p-8 text-center">
         <CheckCircle size={40} weight="duotone" className="mx-auto text-balloon-green" aria-hidden />
         <h3 className="mt-3 font-display text-xl font-bold text-ink">Wiadomość gotowa</h3>
         {state.delivered ? (

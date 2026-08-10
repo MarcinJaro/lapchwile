@@ -43,7 +43,7 @@ export default function WydarzeniaPage() {
 
       <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         {byMonth.size === 0 ? (
-          <div className="rounded-card border border-dashed border-ink/15 bg-cream p-12 text-center">
+          <div className="rounded-card border border-dashed border-ink/15 bg-white p-12 text-center">
             <CalendarBlank size={44} weight="duotone" className="mx-auto text-action" aria-hidden />
             <h2 className="mt-4 font-display text-2xl font-bold text-ink">
               Nowe terminy w przygotowaniu
@@ -73,7 +73,7 @@ export default function WydarzeniaPage() {
               <h2 className="font-display text-2xl font-bold capitalize text-ink">{month}</h2>
               <ul className="mt-5 grid gap-4 sm:grid-cols-2">
                 {monthEvents.map((event) => (
-                  <li key={event.slug} className="rounded-card bg-cream p-6">
+                  <li key={event.slug} className="rounded-card bg-white p-6">
                     <p className="text-sm font-bold uppercase tracking-wide text-action">
                       {new Date(`${event.date}T12:00:00`).toLocaleDateString("pl-PL", {
                         weekday: "long",

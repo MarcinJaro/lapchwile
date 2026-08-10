@@ -2,7 +2,7 @@
 
 @theme {
   --color-cloud: #f7fbff;
-  --color-cream: #fffdf7;
+  --color-cream: #faf3e7;
   --color-action: #1754a8;
   --color-action-dark: #113f80;
   --color-ink: #17223b;
@@ -10,6 +10,10 @@
   --color-balloon-red: #f04438;
   --color-balloon-yellow: #ffd34d;
   --color-balloon-green: #14a66a;
+  --color-pastel-yellow: #fdedc3;
+  --color-pastel-blue: #ddecf8;
+  --color-pastel-green: #def2e4;
+  --color-pastel-pink: #fadfd6;
 
   --font-display: var(--font-bricolage);
   --font-sans: var(--font-manrope);
@@ -54,10 +58,18 @@ html {
 }
 
 body {
-  background-color: var(--color-cloud);
+  background-color: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Marker-pen highlight behind words, Alilo-style. Pair with a bg-* class. */
+.marker {
+  border-radius: 0.45em 0.6em 0.5em 0.65em;
+  padding: 0.06em 0.22em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 ::selection {

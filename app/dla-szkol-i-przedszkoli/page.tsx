@@ -49,7 +49,7 @@ export default function DlaSzkolPage() {
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="grid gap-4 sm:grid-cols-2">
           {offers.map((offer) => (
-            <article key={offer.title} className="overflow-hidden rounded-card bg-cream">
+            <article key={offer.title} className="overflow-hidden rounded-card bg-white">
               <div className="relative aspect-[16/9]">
                 <Image
                   src={offer.image.src}
@@ -67,7 +67,7 @@ export default function DlaSzkolPage() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-card bg-cream p-8 text-center">
+        <div className="mt-10 rounded-card bg-white p-8 text-center">
           <h2 className="font-display text-2xl font-bold text-ink">
             Oferta dla grup
           </h2>

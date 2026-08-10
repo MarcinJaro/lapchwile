@@ -56,7 +56,7 @@ export default function AtrakcjePage() {
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {attractions.map((a) => (
-            <article key={a.title} className="overflow-hidden rounded-card bg-cream">
+            <article key={a.title} className="overflow-hidden rounded-card bg-white">
               <div className="relative aspect-[4/3]">
                 <Image
                   src={a.image.src}

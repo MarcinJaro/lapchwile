@@ -29,7 +29,7 @@ export default function KontaktPage() {
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-[1fr_1.1fr]">
         <div className="space-y-6">
-          <div className="rounded-card bg-cream p-7">
+          <div className="rounded-card bg-white p-7">
             <h2 className="font-display text-xl font-bold text-ink">Dane kontaktowe</h2>
             <ul className="mt-4 space-y-3.5 text-[15px]">
               <li>
@@ -81,7 +81,7 @@ export default function KontaktPage() {
             </ul>
           </div>
 
-          <div className="rounded-card bg-cream p-7">
+          <div className="rounded-card bg-white p-7">
             <h2 className="flex items-center gap-2.5 font-display text-xl font-bold text-ink">
               <MapPin size={22} weight="duotone" className="text-action" aria-hidden />
               Jak nas znaleźć
@@ -111,7 +111,7 @@ export default function KontaktPage() {
             )}
           </div>
 
-          <div className="rounded-card bg-cream p-7">
+          <div className="rounded-card bg-white p-7">
             <h2 className="flex items-center gap-2.5 font-display text-xl font-bold text-ink">
               <Car size={22} weight="duotone" className="text-action" aria-hidden />
               Parking
@@ -122,7 +122,7 @@ export default function KontaktPage() {
             </p>
           </div>
 
-          <div className="rounded-card bg-cream p-7">
+          <div className="rounded-card bg-white p-7">
             <h2 className="flex items-center gap-2.5 font-display text-xl font-bold text-ink">
               <Clock size={22} weight="duotone" className="text-action" aria-hidden />
               Godziny otwarcia

@@ -27,19 +27,17 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustStrip />
+      <WaveDivider className="text-cloud" />
       <BalloonStory />
+      <WaveDivider flip className="text-cloud" />
       <ZonesGrid />
-      <WaveDivider className="text-cream" />
       <UrodzinyTeaser />
-      <WaveDivider flip className="text-cream" />
       <EventsPreview />
-      <WaveDivider className="text-cream" />
       <GalleryStrip />
-      <WaveDivider flip className="text-cream" />
       <ReviewsSection />
       <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6" aria-labelledby="faq-naglowek">
         <h2 id="faq-naglowek" className="text-center font-display text-3xl font-bold text-ink sm:text-4xl">
-          Częste pytania
+          Częste <span className="marker bg-pastel-yellow">pytania</span>
         </h2>
         <div className="mt-8">
           <FaqAccordion />

@@ -9,7 +9,7 @@ export function FaqAccordion() {
   const baseId = useId();
 
   return (
-    <div className="divide-y divide-ink/8 rounded-card border border-ink/8 bg-cream">
+    <div className="divide-y divide-ink/8 rounded-card border border-ink/8 bg-white">
       {faqItems.map((item, i) => {
         const open = openIndex === i;
         const headerId = `${baseId}-naglowek-${i}`;

@@ -74,7 +74,7 @@ export function GalleryExplorer() {
             className={`rounded-full px-5 py-2.5 font-semibold transition-colors ${
               filter === cat.id
                 ? "bg-action text-white"
-                : "border border-ink/12 bg-cream text-ink hover:border-action hover:text-action"
+                : "border border-ink/12 bg-white text-ink hover:border-action hover:text-action"
             }`}
           >
             {cat.label}

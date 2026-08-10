@@ -32,7 +32,7 @@ export default function BlogPage() {
         {published.length > 0 && (
           <ul className="grid gap-4 sm:grid-cols-2">
             {published.map((post) => (
-              <li key={post.slug} className="rounded-card bg-cream p-6">
+              <li key={post.slug} className="rounded-card bg-white p-6">
                 <p className="text-sm font-semibold text-muted">
                   {formatDate(post.publishedAt!)}
                 </p>
@@ -50,7 +50,7 @@ export default function BlogPage() {
         {drafts.length > 0 && (
           <div className={published.length > 0 ? "mt-12" : ""}>
             {published.length === 0 && (
-              <p className="mb-6 rounded-card bg-cream p-6 text-center text-muted">
+              <p className="mb-6 rounded-card bg-white p-6 text-center text-muted">
                 Pierwsze artykuły są w przygotowaniu. Oto tematy, nad którymi
                 pracujemy:
               </p>

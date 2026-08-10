@@ -104,7 +104,7 @@ export default async function ZonePage({
             <li key={other.slug}>
               <Link
                 href={`/strefy/${other.slug}`}
-                className="inline-block rounded-full border border-ink/12 bg-cream px-5 py-2.5 font-semibold text-ink transition-colors hover:border-action hover:text-action"
+                className="inline-block rounded-full border border-ink/12 bg-white px-5 py-2.5 font-semibold text-ink transition-colors hover:border-action hover:text-action"
               >
                 {other.name}
               </Link>

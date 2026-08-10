@@ -38,7 +38,7 @@ export default function CennikPage() {
               className={`relative flex flex-col rounded-card p-7 ${
                 pkg.highlighted
                   ? "bg-action text-white shadow-xl shadow-action/25"
-                  : "bg-cream text-ink"
+                  : "bg-white text-ink"
               }`}
             >
               {pkg.highlighted && (
@@ -114,7 +114,7 @@ export default function CennikPage() {
           </h2>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {packages.map((pkg) => (
-              <div key={pkg.id} className="rounded-card border border-ink/8 bg-cloud p-6">
+              <div key={pkg.id} className="rounded-card border border-ink/8 bg-white p-6">
                 <h3 className="font-display text-lg font-bold text-ink">{pkg.tier}</h3>
                 <ul className="mt-3 space-y-1.5 text-[15px] text-muted">
                   {pkg.food.map((item) => (
@@ -127,7 +127,7 @@ export default function CennikPage() {
         </section>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2">
-          <section aria-labelledby="dodatki-naglowek" className="rounded-card bg-cream p-7">
+          <section aria-labelledby="dodatki-naglowek" className="rounded-card bg-white p-7">
             <h2 id="dodatki-naglowek" className="font-display text-2xl font-bold text-ink">
               Dodatki płatne
             </h2>
@@ -142,7 +142,7 @@ export default function CennikPage() {
           </section>
 
           <div className="flex flex-col gap-4">
-            <section aria-labelledby="rezerwacja-naglowek" className="rounded-card bg-cream p-7">
+            <section aria-labelledby="rezerwacja-naglowek" className="rounded-card bg-white p-7">
               <h2 id="rezerwacja-naglowek" className="flex items-center gap-2.5 font-display text-2xl font-bold text-ink">
                 <CalendarCheck size={26} weight="duotone" className="text-action" aria-hidden />
                 Zasady rezerwacji
@@ -157,7 +157,7 @@ export default function CennikPage() {
               </ul>
             </section>
 
-            <section aria-labelledby="znizki-naglowek" className="rounded-card bg-cream p-7">
+            <section aria-labelledby="znizki-naglowek" className="rounded-card bg-white p-7">
               <h2 id="znizki-naglowek" className="flex items-center gap-2.5 font-display text-2xl font-bold text-ink">
                 <Percent size={26} weight="duotone" className="text-action" aria-hidden />
                 Zniżki

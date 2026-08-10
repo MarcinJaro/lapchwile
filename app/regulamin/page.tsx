@@ -35,7 +35,7 @@ export default function RegulaminPage() {
             </section>
           ))}
         </div>
-        <p className="mt-12 rounded-card bg-cream p-6 text-center font-display text-lg font-bold text-ink">
+        <p className="mt-12 rounded-card bg-white p-6 text-center font-display text-lg font-bold text-ink">
           Dziękujemy za współpracę i życzymy Wam i Waszym dzieciom wspaniałej,
           bezpiecznej zabawy! Zespół Łap Chwile
         </p>

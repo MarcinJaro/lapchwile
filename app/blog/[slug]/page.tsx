@@ -50,7 +50,7 @@ export default async function BlogPostPage({
           ))}
         </div>
       ) : (
-        <div className="mt-8 rounded-card border border-dashed border-ink/15 bg-cream p-8">
+        <div className="mt-8 rounded-card border border-dashed border-ink/15 bg-white p-8">
           <p className="font-display text-lg font-bold text-ink">
             Ten artykuł jest w przygotowaniu
           </p>

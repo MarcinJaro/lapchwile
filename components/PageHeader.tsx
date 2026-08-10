@@ -22,8 +22,10 @@ export function PageHeader({
           className="absolute right-[10%] top-24 hidden text-balloon-red motion-safe:animate-float-slow sm:block"
         />
         {eyebrow && (
-          <p className="inline-block rounded-full bg-balloon-green/12 px-4 py-1.5 text-sm font-bold text-balloon-green">
-            {eyebrow}
+          <p className="inline-block">
+            <span className="marker bg-pastel-green text-sm font-bold uppercase tracking-widest text-ink">
+              {eyebrow}
+            </span>
           </p>
         )}
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">

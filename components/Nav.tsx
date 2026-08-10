@@ -42,7 +42,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/5 bg-cloud/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-ink/5 bg-cream/90 backdrop-blur-md">
       <nav
         aria-label="Nawigacja główna"
         className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6"
@@ -98,7 +98,7 @@ export function Nav() {
         <div
           id="menu-mobilne"
           ref={panelRef}
-          className="border-t border-ink/5 bg-cloud lg:hidden"
+          className="border-t border-ink/5 bg-cream lg:hidden"
         >
           <ul className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
             {links.map((link) => (

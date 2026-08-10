@@ -23,11 +23,8 @@ export function EventsPreview() {
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-balloon-green">
-              Kalendarz
-            </p>
-            <h2 id="wydarzenia-naglowek" className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-              Najbliższe wydarzenia
+            <h2 id="wydarzenia-naglowek" className="font-display text-3xl font-bold text-ink sm:text-4xl">
+              Najbliższe <span className="marker bg-pastel-blue">wydarzenia</span>
             </h2>
           </div>
           <Link href="/wydarzenia" className="group inline-flex items-center gap-1.5 font-bold text-action">
@@ -39,7 +36,7 @@ export function EventsPreview() {
 
       {upcoming.length === 0 ? (
         <Reveal className="mt-8">
-          <div className="rounded-card border border-dashed border-ink/15 bg-cream p-10 text-center">
+          <div className="rounded-card border border-dashed border-ink/15 bg-white p-10 text-center">
             <CalendarBlank size={40} weight="duotone" className="mx-auto text-action" aria-hidden />
             <p className="mt-4 font-display text-xl font-bold text-ink">
               Kalendarz na kolejne tygodnie jest w przygotowaniu
@@ -57,8 +54,12 @@ export function EventsPreview() {
         <ul className="mt-8 grid gap-4 md:grid-cols-3">
           {upcoming.map((event, i) => (
             <Reveal key={event.slug} delay={i * 0.08}>
-              <li className="group flex h-full gap-5 rounded-card bg-cream p-6 transition-shadow duration-300 hover:shadow-xl hover:shadow-ink/10">
-                <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-action text-white">
+              <li
+                className={`group flex h-full gap-5 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/10 ${
+                  ["bg-pastel-blue", "bg-pastel-green", "bg-pastel-yellow"][i % 3]
+                }`}
+              >
+                <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-white text-ink shadow-sm">
                   <span className="font-display text-2xl font-bold leading-none">
                     {dayNumber(event.date)}
                   </span>
@@ -70,7 +71,7 @@ export function EventsPreview() {
                     {event.time ? `, ${event.time}` : ""}
                   </p>
                   <h3 className="mt-0.5 font-display text-xl font-bold text-ink">{event.title}</h3>
-                  <p className="mt-1.5 text-sm font-bold uppercase tracking-wide text-balloon-green">
+                  <p className="mt-1.5 text-sm font-bold uppercase tracking-wide text-ink/55">
                     {eventCategories.find((c) => c.id === event.category)?.label}
                   </p>
                 </div>

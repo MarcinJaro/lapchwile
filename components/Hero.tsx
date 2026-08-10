@@ -8,15 +8,15 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-balloon-yellow/25 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-pastel-yellow/80 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-action/10 blur-3xl"
+        className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-pastel-blue/70 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[38%] top-16 h-40 w-40 rounded-full bg-balloon-green/10 blur-2xl"
+        className="pointer-events-none absolute right-[38%] top-16 h-44 w-44 rounded-full bg-pastel-pink/70 blur-2xl"
       />
 
       <div className="mx-auto grid min-h-[calc(100dvh-4rem)] max-w-6xl grid-cols-1 items-center gap-10 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_0.8fr] md:py-6">
@@ -34,32 +34,16 @@ export function Hero() {
             className="absolute right-2 top-0 text-balloon-green motion-safe:animate-float"
           />
 
-          <p className="inline-flex items-center gap-2 rounded-full bg-balloon-green/12 px-4 py-1.5 text-sm font-bold text-balloon-green">
+          <p className="inline-flex items-center gap-2 rounded-full bg-pastel-green px-4 py-1.5 text-sm font-bold text-ink">
             <span aria-hidden className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-balloon-green opacity-60 motion-safe:animate-ping" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-balloon-green" />
             </span>
             Nieporęt, Zalew Zegrzyński
           </p>
-          <h1 className="mt-5 font-display text-[clamp(2.4rem,6vw,4.2rem)] font-bold leading-[1.04] tracking-tight text-ink">
-            Łap Chwile. Urodziny, które zostają na{" "}
-            <span className="relative inline-block text-action">
-              długo.
-              <svg
-                aria-hidden
-                viewBox="0 0 120 12"
-                className="absolute -bottom-1 left-0 w-full text-balloon-yellow"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M2 9 Q 60 1 118 7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+          <h1 className="mt-5 font-display text-[clamp(2.4rem,6vw,4.2rem)] font-bold leading-[1.08] tracking-tight text-ink">
+            Łap Chwile. Urodziny, które{" "}
+            <span className="marker bg-balloon-yellow/70">zostają na długo.</span>
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted">
             Tor Ninja, twórcze warsztaty i animacje w jednym miejscu nad Zalewem
@@ -98,16 +82,16 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-[340px] motion-safe:animate-fade-up motion-safe:[animation-delay:0.15s] md:mx-0 md:ml-auto md:max-w-[380px]">
           <div
             aria-hidden
-            className="absolute -left-4 -top-4 h-full w-full -rotate-2 rounded-card bg-balloon-red/15"
+            className="absolute -left-4 -top-4 h-full w-full -rotate-2 rounded-card bg-pastel-pink"
           />
           <div
             aria-hidden
-            className="absolute -bottom-4 -right-4 h-full w-full rotate-2 rounded-card bg-balloon-yellow/20"
+            className="absolute -bottom-4 -right-4 h-full w-full rotate-2 rounded-card bg-pastel-yellow"
           />
-          <div className="relative aspect-[9/14] md:aspect-[9/15]">
+          <div className="relative aspect-[9/14] overflow-hidden rounded-card border-[6px] border-white shadow-xl shadow-ink/10 md:aspect-[9/15]">
             <HeroVideo video={media.heroVideo} />
           </div>
-          <p className="absolute -bottom-3 left-4 rounded-full bg-white px-4 py-1.5 text-sm font-bold text-ink shadow-lg">
+          <p className="absolute -bottom-3 left-4 rounded-2xl rounded-bl-sm bg-white px-4 py-2 text-sm font-bold text-ink shadow-lg">
             Prawdziwe chwile z naszej strefy
           </p>
           <Sparkle

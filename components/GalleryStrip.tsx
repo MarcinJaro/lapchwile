@@ -16,16 +16,14 @@ const strip = [
 
 export function GalleryStrip() {
   return (
-    <section className="bg-cream py-20" aria-labelledby="galeria-naglowek">
+    <section className="py-20" aria-labelledby="galeria-naglowek">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-yellow-600">
-                Galeria
-              </p>
-              <h2 id="galeria-naglowek" className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-                Chwile, które już złapaliśmy
+              <h2 id="galeria-naglowek" className="font-display text-3xl font-bold text-ink sm:text-4xl">
+                Chwile, które już{" "}
+                <span className="marker bg-pastel-pink">złapaliśmy</span>
               </h2>
             </div>
             <Link href="/galeria" className="group inline-flex items-center gap-1.5 font-bold text-action">

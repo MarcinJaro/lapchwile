@@ -136,14 +136,14 @@ export default function UrodzinyPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-16" aria-labelledby="pakiet-naglowek">
+      <section className="bg-white py-16" aria-labelledby="pakiet-naglowek">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 id="pakiet-naglowek" className="font-display text-3xl font-bold text-ink sm:text-4xl">
             Co czeka na miejscu
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {included.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="rounded-card bg-cloud p-6">
+              <div key={title} className="rounded-card bg-white p-6">
                 <Icon size={30} weight="duotone" className="text-action" aria-hidden />
                 <h3 className="mt-3 font-display text-lg font-bold text-ink">{title}</h3>
                 <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{text}</p>
@@ -189,7 +189,7 @@ export default function UrodzinyPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-16" aria-labelledby="motywy-naglowek">
+      <section className="bg-white py-16" aria-labelledby="motywy-naglowek">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <h2 id="motywy-naglowek" className="font-display text-3xl font-bold text-ink sm:text-4xl">
             Motywy przewodnie
@@ -203,7 +203,7 @@ export default function UrodzinyPage() {
             {birthdayThemes.map((theme) => (
               <li
                 key={theme}
-                className="rounded-full border border-ink/12 bg-cloud px-5 py-2.5 font-semibold text-ink"
+                className="rounded-full border border-ink/12 bg-white px-5 py-2.5 font-semibold text-ink"
               >
                 {theme}
               </li>

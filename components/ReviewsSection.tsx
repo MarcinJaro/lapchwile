@@ -57,7 +57,7 @@ export async function ReviewsSection() {
           {data.reviews.length > 0 && (
             <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {data.reviews.map((review) => (
-                <li key={`${review.author}-${review.relativeTime}`} className="flex flex-col rounded-card bg-cream p-6">
+                <li key={`${review.author}-${review.relativeTime}`} className="flex flex-col rounded-card bg-white p-6">
                   <div className="flex items-center gap-3">
                     <span
                       aria-hidden
@@ -99,7 +99,7 @@ export async function ReviewsSection() {
           </div>
         </>
       ) : (
-        <div className="mt-8 rounded-card border border-dashed border-ink/15 bg-cloud p-10 text-center">
+        <div className="mt-8 rounded-card border border-dashed border-ink/15 bg-white p-10 text-center">
           <div className="mx-auto flex w-fit items-center gap-1.5" aria-hidden>
             <GoogleLogo size={28} weight="bold" className="text-action" />
             {Array.from({ length: 5 }).map((_, i) => (
