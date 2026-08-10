@@ -49,6 +49,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* decorative parallax balloons poke past section edges; clip must sit on
+     html, not body — on body it silently moves scrolling off the window,
+     which kills position: sticky math and motion's window useScroll */
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -62,8 +66,6 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  /* decorative parallax balloons poke past section edges */
-  overflow-x: clip;
 }
 
 /* Marker-pen highlight behind words, Alilo-style. Pair with a bg-* class. */

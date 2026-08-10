@@ -29,7 +29,9 @@ const img = (
 
 export const media = {
   logo: img(
-    "/media/logo/logotyp-lap-chwile.png",
+    // -v2: renamed after switching the file to a transparent background,
+    // so stale browser caches of the old white-background logo never win
+    "/media/logo/logotyp-lap-chwile-v2.png",
     920,
     722,
     "Logo Łap Chwile: trzy kolorowe baloniki nad napisem łap chwile"

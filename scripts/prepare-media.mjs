@@ -133,7 +133,7 @@ async function still(srcName, { slug, at }) {
 }
 
 async function logo() {
-  const dest = path.join(OUT, "logo/logotyp-lap-chwile.png");
+  const dest = path.join(OUT, "logo/logotyp-lap-chwile-v2.png");
   mkdirSync(path.dirname(dest), { recursive: true });
   // the source logo has a white background: key it to alpha (exact shapes,
   // no AI), un-blend edge pixels, then a gentle 2x lanczos upscale
@@ -164,8 +164,8 @@ async function logo() {
     .resize({ width: 920, kernel: "lanczos3" })
     .png({ compressionLevel: 9 })
     .toFile(dest);
-  manifest["logo/logotyp-lap-chwile"] = {
-    src: "/media/logo/logotyp-lap-chwile.png",
+  manifest["logo/logotyp-lap-chwile-v2"] = {
+    src: "/media/logo/logotyp-lap-chwile-v2.png",
     width: info.width,
     height: info.height,
   };
