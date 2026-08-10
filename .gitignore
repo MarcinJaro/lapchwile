@@ -15,5 +15,7 @@ next-env.d.ts
 /_archive/
 /Urodziny_realizacja/
 
-# large generated assets kept out of git (regenerate via npm run frames / media)
-/public/frames/balloon/
+# balloon frames are committed (2 MB) so Vercel deploys include them;
+# regenerate from source video via npm run frames
+.vercel
+.env*.local
