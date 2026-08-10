@@ -135,13 +135,41 @@ async function still(srcName, { slug, at }) {
 async function logo() {
   const dest = path.join(OUT, "logo/logotyp-lap-chwile.png");
   mkdirSync(path.dirname(dest), { recursive: true });
-  const info = await sharp(path.resolve("LOGOTYP_LCh.png")).trim().png().toFile(dest);
+  // the source logo has a white background: key it to alpha (exact shapes,
+  // no AI), un-blend edge pixels, then a gentle 2x lanczos upscale
+  const { data, info: rawInfo } = await sharp(path.resolve("LOGOTYP_LCh.png"))
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  for (let i = 0; i < rawInfo.width * rawInfo.height; i++) {
+    const o = i * 4;
+    const r = data[o], g = data[o + 1], b = data[o + 2];
+    const d = Math.sqrt(((255 - r) ** 2 + (255 - g) ** 2 + (255 - b) ** 2) / 3);
+    const a = Math.max(0, Math.min(255, Math.round(d * 3)));
+    data[o + 3] = a;
+    if (a > 0 && a < 255) {
+      const af = a / 255;
+      data[o] = Math.max(0, Math.min(255, Math.round((r - 255 * (1 - af)) / af)));
+      data[o + 1] = Math.max(0, Math.min(255, Math.round((g - 255 * (1 - af)) / af)));
+      data[o + 2] = Math.max(0, Math.min(255, Math.round((b - 255 * (1 - af)) / af)));
+    }
+  }
+  const keyed = await sharp(data, {
+    raw: { width: rawInfo.width, height: rawInfo.height, channels: 4 },
+  })
+    .png()
+    .toBuffer();
+  const info = await sharp(keyed)
+    .trim()
+    .resize({ width: 920, kernel: "lanczos3" })
+    .png({ compressionLevel: 9 })
+    .toFile(dest);
   manifest["logo/logotyp-lap-chwile"] = {
     src: "/media/logo/logotyp-lap-chwile.png",
     width: info.width,
     height: info.height,
   };
-  console.log(`logo ${info.width}x${info.height}`);
+  console.log(`logo ${info.width}x${info.height} (transparent)`);
 }
 
 for (const [src, slug] of Object.entries(PHOTOS)) {

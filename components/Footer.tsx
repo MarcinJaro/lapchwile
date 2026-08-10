@@ -60,7 +60,7 @@ export function Footer() {
             src={media.logo.src}
             alt={media.logo.alt}
             width={120}
-            height={91}
+            height={94}
             className="h-16 w-auto"
           />
           <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-muted">

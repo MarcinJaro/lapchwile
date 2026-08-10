@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, CalendarBlank } from "@phosphor-icons/react/dist/ssr";
 import { events, eventCategories } from "@/content/events";
+import { balloonDecor } from "@/content/dekoracje";
+import { FloatingBalloon } from "./FloatingBalloon";
 import { Reveal } from "./Reveal";
 
 const dayNumber = (iso: string) =>
@@ -19,7 +21,13 @@ export function EventsPreview() {
     .slice(0, 3);
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-labelledby="wydarzenia-naglowek">
+    <section className="relative isolate mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-labelledby="wydarzenia-naglowek">
+      <FloatingBalloon
+        {...balloonDecor.zolty}
+        className="-right-10 -top-4 w-24 opacity-85 sm:w-28"
+        speed={-0.07}
+        rotate={4}
+      />
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

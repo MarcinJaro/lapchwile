@@ -30,8 +30,8 @@ const img = (
 export const media = {
   logo: img(
     "/media/logo/logotyp-lap-chwile.png",
-    479,
-    364,
+    920,
+    722,
     "Logo Łap Chwile: trzy kolorowe baloniki nad napisem łap chwile"
   ),
 

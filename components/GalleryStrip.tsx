@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { media } from "@/content/media";
+import { balloonDecor } from "@/content/dekoracje";
+import { FloatingBalloon } from "./FloatingBalloon";
 import { Reveal } from "./Reveal";
 
 /** Mixed-aspect editorial strip of real photos, not equal cards. */
@@ -16,7 +18,13 @@ const strip = [
 
 export function GalleryStrip() {
   return (
-    <section className="py-20" aria-labelledby="galeria-naglowek">
+    <section className="relative isolate py-20" aria-labelledby="galeria-naglowek">
+      <FloatingBalloon
+        {...balloonDecor.czerwony}
+        className="-left-12 top-1/4 hidden w-32 opacity-75 sm:block"
+        speed={-0.13}
+        rotate={-5}
+      />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">

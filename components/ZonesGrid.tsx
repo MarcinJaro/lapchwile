@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { zones } from "@/content/zones";
+import { balloonDecor } from "@/content/dekoracje";
+import { FloatingBalloon } from "./FloatingBalloon";
 import { Reveal } from "./Reveal";
 
 const cardColor: Record<string, string> = {
@@ -14,7 +16,19 @@ const cardColor: Record<string, string> = {
 /** Asymmetric five-tile grid of pastel cards with framed real photos. */
 export function ZonesGrid() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-labelledby="strefy-naglowek">
+    <section className="relative isolate mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-labelledby="strefy-naglowek">
+      <FloatingBalloon
+        {...balloonDecor.niebieski}
+        className="-right-14 top-6 w-28 opacity-80 sm:w-32"
+        speed={-0.09}
+        rotate={7}
+      />
+      <FloatingBalloon
+        {...balloonDecor.zielony}
+        className="-left-16 bottom-32 hidden w-28 opacity-70 md:block"
+        speed={-0.15}
+        rotate={-8}
+      />
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

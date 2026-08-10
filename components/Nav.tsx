@@ -52,7 +52,7 @@ export function Nav() {
             src={media.logo.src}
             alt={media.logo.alt}
             width={96}
-            height={73}
+            height={75}
             priority
             className="h-12 w-auto"
           />
