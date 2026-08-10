@@ -1,12 +1,15 @@
 /**
  * Backend adapter boundary for reservation and contact submissions.
  *
- * There is NO backend configured yet. This adapter is the single place to
- * connect one later (e-mail service, CRM, database) without touching the
- * form or the server action. Until then `delivered` is always false and the
- * UI is honest about it: it offers the composed message via mailto/phone
- * instead of pretending the submission was stored.
+ * Delivery goes through Resend (lib/email.ts) to the business mailbox
+ * configured in site-config (notifications.to) when RESEND_API_KEY is set.
+ * Without the key `delivered` stays false and the UI is honest about it:
+ * it offers the composed message via mailto/phone instead of pretending
+ * the submission was stored.
  */
+
+import { siteConfig } from "@/content/site-config";
+import { buildSubmissionEmailHtml, isEmailConfigured, sendEmail } from "./email";
 
 export type ReservationRequest = {
   type: "rezerwacja" | "kontakt";
@@ -48,9 +51,27 @@ export async function deliverReservation(
 
   const summary = lines.join("\n");
 
-  // TODO(backend): send `summary` to the business mailbox or CRM here and
-  // return { delivered: true, summary } once a real integration exists.
-  console.info("[reservation-adapter] submission received (no backend configured):\n" + summary);
+  if (isEmailConfigured()) {
+    const subject =
+      request.type === "rezerwacja"
+        ? `Rezerwacja: ${request.preferredDate ?? "termin do ustalenia"} · ${request.childrenCount ?? "?"} dzieci · ${request.parentName}`
+        : `Wiadomość ze strony: ${request.parentName}`;
+    const delivered = await sendEmail({
+      to: siteConfig.notifications.to,
+      subject,
+      html: buildSubmissionEmailHtml(request),
+      replyTo: request.email,
+    });
+    if (delivered) {
+      console.info("[reservation-adapter] submission emailed to " + siteConfig.notifications.to);
+      return { delivered: true, summary };
+    }
+    console.warn("[reservation-adapter] email send failed, falling back to mailto flow");
+  } else {
+    console.info(
+      "[reservation-adapter] RESEND_API_KEY missing - submission NOT emailed:\n" + summary
+    );
+  }
 
   return { delivered: false, summary };
 }

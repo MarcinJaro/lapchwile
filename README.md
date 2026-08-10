@@ -105,10 +105,26 @@ Konfiguracja (NIE wymaga dostępu administratora wizytówki):
 ## Rezerwacja
 
 Formularz bez płatności online: walidacja inline (server action), stany
-ładowania, błędów i sukcesu. Backend NIE jest skonfigurowany — adapter
-`lib/reservation-adapter.ts` to jedyne miejsce do podpięcia maila/CRM.
-Do tego czasu ekran sukcesu uczciwie informuje, że nic nie wysłało się
-automatycznie, i podaje gotowy mailto oraz telefon.
+ładowania, błędów i sukcesu. Adapter `lib/reservation-adapter.ts` to
+jedyne miejsce integracji backendu.
+
+## Maile z formularzy (Resend)
+
+Zgłoszenia z formularzy rezerwacji i kontaktu są wysyłane mailem
+(brandowany szablon HTML, Reply-To ustawione na adres zgłaszającego) na
+skrzynkę z `content/site-config.ts` → `notifications.to`
+(obecnie aine.gd@gmail.com). Wysyłka działa przez Resend:
+
+1. Załóż darmowe konto na [resend.com](https://resend.com) (3000 maili/mies. gratis).
+2. API Keys → Create API key → wklej do `.env.local` jako `RESEND_API_KEY=...`
+   (i do zmiennych środowiskowych na hostingu).
+3. Docelowo zweryfikuj domenę lapchwile.com (Domains → Add domain, rekordy
+   DNS SPF/DKIM) i ustaw `RESEND_FROM="Łap Chwile <rezerwacje@lapchwile.com>"`.
+   Bez weryfikacji nadawca testowy `onboarding@resend.dev` dostarcza
+   wyłącznie na adres właściciela konta Resend.
+
+Bez klucza formularz jest nadal uczciwy: ekran sukcesu informuje, że nic
+nie wysłało się automatycznie, i podaje gotowy mailto oraz telefon.
 
 ## Konto rodzica (faza 2 — nie zaimplementowane)
 

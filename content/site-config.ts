@@ -47,6 +47,15 @@ export const siteConfig = {
     whatsapp: "https://wa.me/48790790137" as string | null,
   },
 
+  /**
+   * Skrzynka, na którą trafiają zgłoszenia z formularzy (rezerwacje
+   * i wiadomości kontaktowe). Wysyłka wymaga RESEND_API_KEY w środowisku,
+   * patrz README sekcja "Maile z formularzy".
+   */
+  notifications: {
+    to: "aine.gd@gmail.com",
+  },
+
   social: {
     facebook: "https://www.facebook.com/lapchwilenieporet" as string | null,
     instagram: "https://www.instagram.com/lapchwilenieporet" as string | null,
