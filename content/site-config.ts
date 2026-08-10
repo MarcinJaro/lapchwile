@@ -53,6 +53,12 @@ export const siteConfig = {
    * patrz README sekcja "Maile z formularzy".
    */
   notifications: {
+    /**
+     * UWAGA: dostawa na ten adres wymaga zweryfikowania domeny
+     * lapchwile.com w Resend (resend.com/domains) i ustawienia RESEND_FROM
+     * na adres @lapchwile.com. Do tego czasu Resend dostarcza wyłącznie
+     * na adres właściciela konta (marcin.jaroszewicz@me.com).
+     */
     to: "aine.gd@gmail.com",
   },
 
