@@ -108,23 +108,31 @@ Formularz bez płatności online: walidacja inline (server action), stany
 ładowania, błędów i sukcesu. Adapter `lib/reservation-adapter.ts` to
 jedyne miejsce integracji backendu.
 
-## Maile z formularzy (Resend)
+## Maile z formularzy
 
 Zgłoszenia z formularzy rezerwacji i kontaktu są wysyłane mailem
 (brandowany szablon HTML, Reply-To ustawione na adres zgłaszającego) na
 skrzynkę z `content/site-config.ts` → `notifications.to`
-(obecnie aine.gd@gmail.com). Wysyłka działa przez Resend:
+(obecnie aine.gd@gmail.com). Do wyboru dwa transporty (wystarczy jeden;
+zmienne w `.env.local` i na hostingu):
 
-1. Załóż darmowe konto na [resend.com](https://resend.com) (3000 maili/mies. gratis).
-2. API Keys → Create API key → wklej do `.env.local` jako `RESEND_API_KEY=...`
-   (i do zmiennych środowiskowych na hostingu).
-3. Docelowo zweryfikuj domenę lapchwile.com (Domains → Add domain, rekordy
-   DNS SPF/DKIM) i ustaw `RESEND_FROM="Łap Chwile <rezerwacje@lapchwile.com>"`.
-   Bez weryfikacji nadawca testowy `onboarding@resend.dev` dostarcza
-   wyłącznie na adres właściciela konta Resend.
+**Wariant A — SMTP istniejącej skrzynki (zalecany, bez nowych kont):**
 
-Bez klucza formularz jest nadal uczciwy: ekran sukcesu informuje, że nic
-nie wysłało się automatycznie, i podaje gotowy mailto oraz telefon.
+- skrzynka na hostingu lapchwile.com: dane SMTP z panelu hostingu
+  (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER=kontakt@lapchwile.com`, `SMTP_PASS`),
+- albo Gmail: włącz weryfikację dwuetapową, wygeneruj
+  [hasło do aplikacji](https://myaccount.google.com/apppasswords) i użyj
+  `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=465`, `SMTP_USER`, `SMTP_PASS`
+  (limit ok. 500 maili dziennie).
+
+**Wariant B — Resend (resend.com, 3000 maili/mies. gratis):**
+`RESEND_API_KEY` z panelu API Keys; docelowo zweryfikuj domenę
+lapchwile.com i ustaw `RESEND_FROM`. Bez weryfikacji nadawca
+`onboarding@resend.dev` dostarcza tylko na adres właściciela konta.
+
+Gdy skonfigurowane są oba, pierwszeństwo ma SMTP. Bez żadnego formularz
+jest nadal uczciwy: ekran sukcesu informuje, że nic nie wysłało się
+automatycznie, i podaje gotowy mailto oraz telefon.
 
 ## Konto rodzica (faza 2 — nie zaimplementowane)
 

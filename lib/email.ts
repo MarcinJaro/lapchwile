@@ -1,31 +1,67 @@
+import nodemailer from "nodemailer";
 import { siteConfig } from "@/content/site-config";
 import type { ReservationRequest } from "./reservation-adapter";
 
 /**
- * E-mail delivery via the Resend HTTP API (no SDK dependency).
- * Requires RESEND_API_KEY in the environment; RESEND_FROM optionally
- * overrides the sender (defaults to Resend's onboarding sender, which can
- * only deliver to the Resend account owner until lapchwile.com is verified).
+ * E-mail delivery. Two interchangeable transports, picked by env:
+ *
+ * 1. SMTP (preferred when configured) - any existing mailbox:
+ *    SMTP_HOST, SMTP_PORT (465 = SSL, 587 = STARTTLS), SMTP_USER, SMTP_PASS,
+ *    optional SMTP_FROM ("Łap Chwile <kontakt@lapchwile.com>").
+ *    Works with the lapchwile.com hosting mailbox or Gmail app password.
+ *
+ * 2. Resend HTTP API - RESEND_API_KEY, optional RESEND_FROM (defaults to
+ *    the onboarding sender, which only delivers to the Resend account owner
+ *    until lapchwile.com is verified).
  */
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
-const DEFAULT_FROM = "Łap Chwile <onboarding@resend.dev>";
+const RESEND_DEFAULT_FROM = "Łap Chwile <onboarding@resend.dev>";
 
-export function isEmailConfigured(): boolean {
-  return Boolean(process.env.RESEND_API_KEY);
+function smtpConfigured(): boolean {
+  return Boolean(
+    process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS
+  );
 }
 
-export async function sendEmail({
-  to,
-  subject,
-  html,
-  replyTo,
-}: {
+export function isEmailConfigured(): boolean {
+  return smtpConfigured() || Boolean(process.env.RESEND_API_KEY);
+}
+
+type EmailPayload = {
   to: string;
   subject: string;
   html: string;
   replyTo?: string;
-}): Promise<boolean> {
+};
+
+async function sendViaSmtp({ to, subject, html, replyTo }: EmailPayload): Promise<boolean> {
+  const port = Number(process.env.SMTP_PORT || 465);
+  const transport = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port,
+    secure: port === 465,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+  try {
+    await transport.sendMail({
+      from: process.env.SMTP_FROM || `"Łap Chwile" <${process.env.SMTP_USER}>`,
+      to,
+      subject,
+      html,
+      ...(replyTo ? { replyTo } : {}),
+    });
+    return true;
+  } catch (error) {
+    console.warn("[email] SMTP send failed:", error);
+    return false;
+  }
+}
+
+async function sendViaResend({ to, subject, html, replyTo }: EmailPayload): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return false;
 
@@ -37,7 +73,7 @@ export async function sendEmail({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM || DEFAULT_FROM,
+        from: process.env.RESEND_FROM || RESEND_DEFAULT_FROM,
         to: [to],
         subject,
         html,
@@ -52,9 +88,14 @@ export async function sendEmail({
     }
     return true;
   } catch (error) {
-    console.warn("[email] send failed:", error);
+    console.warn("[email] Resend send failed:", error);
     return false;
   }
+}
+
+export async function sendEmail(payload: EmailPayload): Promise<boolean> {
+  if (smtpConfigured()) return sendViaSmtp(payload);
+  return sendViaResend(payload);
 }
 
 const BRAND = {
