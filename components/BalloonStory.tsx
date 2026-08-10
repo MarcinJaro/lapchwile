@@ -27,21 +27,21 @@ type Stage = {
 };
 
 const stages: Stage[] = [
-  { range: [0, 0.01, 0.14, 0.18], text: "Chwile mają to do siebie, że szybko uciekają." },
+  { range: [0, 0.02, 0.16, 0.2], text: "Chwile mają to do siebie, że szybko uciekają." },
   {
-    range: [0.22, 0.27, 0.38, 0.42],
+    range: [0.23, 0.27, 0.42, 0.46],
     text: "Najpierw jest ruch.",
     photo: media.biegPoTrawie,
     side: "left",
   },
   {
-    range: [0.46, 0.51, 0.62, 0.66],
+    range: [0.49, 0.53, 0.68, 0.72],
     text: "Potem pomysł.",
     photo: media.stolikKolorowanki,
     side: "right",
   },
   {
-    range: [0.7, 0.75, 0.84, 0.88],
+    range: [0.75, 0.79, 0.89, 0.92],
     text: "A później zostaje wspomnienie.",
     photo: media.dzieciPrzySciance,
     side: "left",
@@ -243,10 +243,10 @@ function ScrubStory() {
     return () => observer.disconnect();
   }, [scheduleDraw]);
 
-  const ctaOpacity = useTransform(scrollYProgress, [0.92, 0.97], [0, 1]);
-  const ctaY = useTransform(scrollYProgress, [0.92, 0.97], [24, 0]);
+  const ctaOpacity = useTransform(scrollYProgress, [0.94, 0.98], [0, 1]);
+  const ctaY = useTransform(scrollYProgress, [0.94, 0.98], [24, 0]);
   const ctaPointer = useTransform(scrollYProgress, (v) =>
-    v > 0.92 ? ("auto" as const) : ("none" as const)
+    v > 0.94 ? ("auto" as const) : ("none" as const)
   );
 
   if (framesMissing) return <StaticStory poster="/frames/balloon/poster-start.webp" />;
@@ -255,7 +255,7 @@ function ScrubStory() {
     <section
       ref={sectionRef}
       aria-label="Opowieść o balonie, który łapie chwile"
-      className="relative min-h-[400dvh] bg-cloud"
+      className="relative min-h-[480dvh] bg-cloud"
     >
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
         {!firstFrameReady && (
@@ -328,8 +328,14 @@ function StoryStage({
     <>
       <motion.p
         style={{ opacity, y }}
-        className={`pointer-events-none absolute inset-x-4 top-[14dvh] mx-auto max-w-xl text-center font-display text-[clamp(1.6rem,4vw,2.8rem)] font-bold leading-tight text-ink md:top-[18dvh] ${
-          stage.photo ? (fromLeft ? "md:right-[8%] md:left-auto md:text-right" : "md:left-[8%] md:right-auto md:text-left") : ""
+        className={`pointer-events-none absolute inset-x-4 top-[14dvh] mx-auto max-w-xl text-center font-display text-[clamp(1.6rem,4vw,2.8rem)] font-bold leading-tight text-ink ${
+          stage.photo
+            ? `md:top-1/2 md:-translate-y-1/2 md:mx-0 md:max-w-md ${
+                fromLeft
+                  ? "md:right-[8%] md:left-auto md:text-right"
+                  : "md:left-[8%] md:right-auto md:text-left"
+              }`
+            : "md:top-[18dvh]"
         }`}
       >
         {stage.text}
@@ -338,7 +344,7 @@ function StoryStage({
       {stage.photo && (
         <motion.div
           style={{ opacity, x: photoX, clipPath: photoClip }}
-          className={`pointer-events-none absolute bottom-[10dvh] w-[46vw] max-w-[220px] md:bottom-auto md:top-1/2 md:w-[24vw] md:max-w-[330px] md:-translate-y-1/2 ${
+          className={`pointer-events-none absolute bottom-[10dvh] w-[46vw] max-w-[220px] md:bottom-auto md:top-1/2 md:w-[26vw] md:max-w-[360px] md:-translate-y-1/2 ${
             fromLeft ? "left-4 md:left-[7%] -rotate-2" : "right-4 md:right-[7%] rotate-2"
           }`}
         >

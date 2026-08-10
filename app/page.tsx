@@ -29,9 +29,10 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustStrip />
-      <WaveDivider className="text-cloud" />
+      {/* cream waves overlap the animation canvas so no flat stripe shows between sections */}
+      <WaveDivider flip className="pointer-events-none relative z-10 -mb-8 text-cream sm:-mb-12" />
       <BalloonStory />
-      <WaveDivider flip className="text-cloud" />
+      <WaveDivider className="pointer-events-none relative z-10 -mt-8 text-cream sm:-mt-12" />
       <ZonesGrid />
       <UrodzinyTeaser />
       <EventsPreview />
