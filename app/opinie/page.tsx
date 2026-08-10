@@ -19,7 +19,7 @@ export default function OpiniePage() {
       <PageHeader
         eyebrow="Opinie"
         title="Co mówią rodzice"
-        lead="Pokazujemy wyłącznie prawdziwe opinie. Sekcja czeka na podpięcie wizytówki Google."
+        lead="Pokazujemy wyłącznie prawdziwe opinie z naszej wizytówki Google, odświeżane raz dziennie."
       />
       <ReviewsSection />
       <ReservationCta />

@@ -70,12 +70,12 @@ export const siteConfig = {
   ],
 
   /**
-   * Link do wizytówki Google z opiniami (CID z linku przekazanego przez
-   * właściciela strony). placeId w formacie ChIJ do uzupełnienia przy
-   * integracji API opinii.
+   * Wizytówka Google z opiniami. placeId znalezione przez Places API
+   * (searchText) po podpięciu klucza, 2026-08-10; CID z linku przekazanego
+   * przez właściciela strony.
    */
   googleReviews: {
-    placeId: null as string | null,
+    placeId: "ChIJiWzWF3vHHkcRiWXlltEtHcg" as string | null,
     profileUrl:
       "https://maps.google.com/?cid=14419731960113227145" as string | null,
   },
