@@ -47,7 +47,12 @@ export default function RootLayout({
           Przejdź do treści
         </a>
         <Nav />
-        <main id="tresc">{children}</main>
+        {/* overflow-x-clip: iOS Safari ignores clip on the root element and lets
+            the page pan sideways when decorations poke past the viewport;
+            clip (unlike hidden) creates no scroll container, so sticky survives */}
+        <main id="tresc" className="overflow-x-clip">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
