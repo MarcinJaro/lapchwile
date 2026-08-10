@@ -151,6 +151,17 @@ export function Footer() {
             {siteConfig.legal.postalCode} {siteConfig.legal.city}. NIP {siteConfig.legal.nip}.
           </p>
           <p>Zdjęcia pochodzą z prawdziwych wydarzeń w Łap Chwile.</p>
+          <p>
+            Projekt i realizacja:{" "}
+            <a
+              href="https://creativerebels.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-action hover:underline"
+            >
+              Creative Rebels
+            </a>
+          </p>
         </div>
       </div>
     </footer>
