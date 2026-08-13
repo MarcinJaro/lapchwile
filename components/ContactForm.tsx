@@ -40,7 +40,10 @@ export function ContactForm() {
         <CheckCircle size={40} weight="duotone" className="mx-auto text-balloon-green" aria-hidden />
         <h3 className="mt-3 font-display text-xl font-bold text-ink">Wiadomość gotowa</h3>
         {state.delivered ? (
-          <p className="mt-2 text-muted">Dziękujemy! Odpowiemy najszybciej, jak się da.</p>
+          <p className="mt-2 text-muted">
+            Dziękujemy! Odpowiemy najszybciej, jak się da. Potwierdzenie
+            wysłaliśmy na Wasz adres e-mail.
+          </p>
         ) : (
           <>
             <p className="mx-auto mt-2 max-w-sm text-muted">

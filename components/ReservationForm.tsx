@@ -79,8 +79,8 @@ export function ReservationForm() {
         </h2>
         {state.delivered ? (
           <p className="mx-auto mt-3 max-w-md text-muted">
-            Dziękujemy! Odezwiemy się najszybciej, jak to możliwe, żeby potwierdzić
-            termin i szczegóły.
+            Dziękujemy! Odezwiemy się, żeby potwierdzić termin i szczegóły.
+            Potwierdzenie zgłoszenia wysłaliśmy na Wasz adres e-mail.
           </p>
         ) : (
           <>

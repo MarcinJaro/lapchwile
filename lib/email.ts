@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { siteConfig } from "@/content/site-config";
+import { bookingRules } from "@/content/pricing";
 import type { ReservationRequest } from "./reservation-adapter";
 
 /**
@@ -194,6 +195,134 @@ export function buildSubmissionEmailHtml(request: ReservationRequest): string {
   </table>
   <p style="max-width:560px;margin:14px auto 0;text-align:center;font-size:12px;color:${BRAND.muted};">
     Wiadomość wysłana automatycznie z formularza na ${siteConfig.domain.replace("https://", "")}
+  </p>
+</body>
+</html>`;
+}
+
+/** "2026-09-26" -> "sobota, 26 września 2026"; falls back to the raw value. */
+function formatDatePl(iso: string): string {
+  const date = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString("pl-PL", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+/** Summary rows shared by the business notification and the confirmation. */
+function summaryRows(request: ReservationRequest): string[] {
+  const rows: string[] = [];
+  if (request.preferredDate)
+    rows.push(row("Termin", escapeHtml(formatDatePl(request.preferredDate))));
+  if (request.childrenCount) rows.push(row("Liczba dzieci", escapeHtml(request.childrenCount)));
+  if (request.childAge) rows.push(row("Wiek dzieci", escapeHtml(request.childAge)));
+  if (request.theme) rows.push(row("Motyw", escapeHtml(request.theme)));
+  if (request.packageChoice) rows.push(row("Pakiet", escapeHtml(request.packageChoice)));
+  if (request.extras?.length)
+    rows.push(row("Dodatkowe atrakcje", escapeHtml(request.extras.join(", "))));
+  return rows;
+}
+
+/**
+ * Confirmation sent to the person who submitted the form, so they have proof
+ * the request arrived. Deliberately promises no specific response time: that
+ * is a business commitment the owner has not made. Booking rules come from
+ * content/pricing.ts so they never drift from the published cennik.
+ */
+export function buildConfirmationEmailHtml(request: ReservationRequest): string {
+  const isReservation = request.type === "rezerwacja";
+  const rows = summaryRows(request);
+
+  const summaryBlock =
+    isReservation && rows.length > 0
+      ? `
+      <tr>
+        <td style="padding:4px 24px 0;">
+          <p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:${BRAND.muted};">Co od Was dostaliśmy</p>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #efe6d6;border-radius:14px;overflow:hidden;font-size:14px;background:#fffdf9;">
+            ${rows.join("")}
+          </table>
+        </td>
+      </tr>`
+      : "";
+
+  const rulesBlock = isReservation
+    ? `
+      <tr>
+        <td style="padding:20px 24px 0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND.cream};border-radius:14px;">
+            <tr><td style="padding:16px 18px;">
+              <p style="margin:0 0 10px;font-weight:700;color:${BRAND.ink};font-size:15px;">Dobrze wiedzieć przed przyjęciem</p>
+              ${bookingRules
+                .map(
+                  (rule) =>
+                    `<p style="margin:0 0 6px;font-size:14px;color:${BRAND.muted};"><span style="color:${BRAND.ink};font-weight:600;">${escapeHtml(rule.label)}:</span> ${escapeHtml(rule.value)}</p>`
+                )
+                .join("")}
+            </td></tr>
+          </table>
+        </td>
+      </tr>`
+    : "";
+
+  const intro = isReservation
+    ? "Dziękujemy za zgłoszenie rezerwacji. Odezwiemy się, żeby potwierdzić dostępność terminu i dopiąć szczegóły przyjęcia. Ten e-mail to potwierdzenie, że Wasze zgłoszenie do nas dotarło."
+    : "Dziękujemy za wiadomość. Odpowiemy na nią osobiście, najszybciej jak się da. Ten e-mail to potwierdzenie, że Wasza wiadomość do nas dotarła.";
+
+  return `<!doctype html>
+<html lang="pl">
+<body style="margin:0;padding:24px 12px;background:${BRAND.cream};font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 8px 30px rgba(23,34,59,0.10);">
+    <tr>
+      <td style="padding:0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td style="height:6px;background:${BRAND.blue};"></td>
+          <td style="height:6px;background:${BRAND.red};"></td>
+          <td style="height:6px;background:${BRAND.yellow};"></td>
+          <td style="height:6px;background:${BRAND.green};"></td>
+        </tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:30px 24px 6px;text-align:center;">
+        <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:${BRAND.muted};">Łap Chwile · Nieporęt, Zalew Zegrzyński</p>
+        <h1 style="margin:12px 0 0;font-size:26px;line-height:1.25;color:${BRAND.ink};">
+          Mamy Wasze zgłoszenie <span style="display:inline-block;">🎈</span>
+        </h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:12px 24px 18px;">
+        <p style="margin:0;font-size:15px;line-height:1.65;color:${BRAND.muted};text-align:center;">${intro}</p>
+      </td>
+    </tr>
+    ${summaryBlock}
+    ${rulesBlock}
+    <tr>
+      <td style="padding:24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #efe6d6;">
+          <tr><td style="padding-top:18px;text-align:center;">
+            <p style="margin:0 0 6px;font-size:14px;color:${BRAND.muted};">Macie pytanie wcześniej? Odpiszcie na tego maila albo zadzwońcie:</p>
+            <p style="margin:0 0 4px;">
+              <a href="tel:${siteConfig.contact.phone.replace(/\s/g, "")}" style="color:${BRAND.blue};font-weight:700;font-size:18px;text-decoration:none;">${siteConfig.contact.phoneDisplay}</a>
+            </p>
+            <p style="margin:0;font-size:13px;color:${BRAND.muted};">${siteConfig.venue.name}, ${siteConfig.venue.street}, ${siteConfig.venue.city}</p>
+          </td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0 24px 28px;text-align:center;">
+        <p style="margin:0;font-size:15px;font-weight:700;color:${BRAND.ink};">Do zobaczenia nad Zalewem!</p>
+        <p style="margin:4px 0 0;font-size:14px;color:${BRAND.muted};">Zespół Łap Chwile</p>
+      </td>
+    </tr>
+  </table>
+  <p style="max-width:560px;margin:14px auto 0;text-align:center;font-size:12px;color:${BRAND.muted};">
+    Ten e-mail wysłano automatycznie po wypełnieniu formularza na ${siteConfig.domain.replace("https://", "")}
   </p>
 </body>
 </html>`;

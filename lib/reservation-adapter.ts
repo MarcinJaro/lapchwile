@@ -9,7 +9,12 @@
  */
 
 import { siteConfig } from "@/content/site-config";
-import { buildSubmissionEmailHtml, isEmailConfigured, sendEmail } from "./email";
+import {
+  buildConfirmationEmailHtml,
+  buildSubmissionEmailHtml,
+  isEmailConfigured,
+  sendEmail,
+} from "./email";
 
 export type ReservationRequest = {
   type: "rezerwacja" | "kontakt";
@@ -64,6 +69,23 @@ export async function deliverReservation(
     });
     if (delivered) {
       console.info("[reservation-adapter] submission emailed to " + siteConfig.notifications.to);
+
+      // Confirmation for the person who submitted the form. Best effort: the
+      // business notification is what matters, so a failure here is logged
+      // but never turns a delivered submission into a failed one.
+      const confirmationSent = await sendEmail({
+        to: request.email,
+        subject:
+          request.type === "rezerwacja"
+            ? "Mamy Wasze zgłoszenie rezerwacji - Łap Chwile"
+            : "Mamy Waszą wiadomość - Łap Chwile",
+        html: buildConfirmationEmailHtml(request),
+        replyTo: siteConfig.contact.email,
+      });
+      if (!confirmationSent) {
+        console.warn("[reservation-adapter] confirmation to submitter failed");
+      }
+
       return { delivered: true, summary };
     }
     console.warn("[reservation-adapter] email send failed, falling back to mailto flow");
