@@ -60,7 +60,7 @@ export const siteConfig = {
      * .env.local oraz w zmiennych środowiskowych na Vercelu.
      * Reply-To wskazuje na adres osoby zgłaszającej.
      */
-    to: "aine.gd@gmail.com",
+    to: "kontakt@lapchwile.com",
   },
 
   social: {
