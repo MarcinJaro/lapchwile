@@ -54,10 +54,11 @@ export const siteConfig = {
    */
   notifications: {
     /**
-     * UWAGA: dostawa na ten adres wymaga zweryfikowania domeny
-     * lapchwile.com w Resend (resend.com/domains) i ustawienia RESEND_FROM
-     * na adres @lapchwile.com. Do tego czasu Resend dostarcza wyłącznie
-     * na adres właściciela konta (marcin.jaroszewicz@me.com).
+     * Skrzynka odbiorcza zgłoszeń z formularzy. Wysyłka potwierdzona
+     * end-to-end 13.08.2026: domena lapchwile.com zweryfikowana w Resend,
+     * nadawca z RESEND_FROM (rezerwacje@lapchwile.com) ustawiony w
+     * .env.local oraz w zmiennych środowiskowych na Vercelu.
+     * Reply-To wskazuje na adres osoby zgłaszającej.
      */
     to: "aine.gd@gmail.com",
   },
